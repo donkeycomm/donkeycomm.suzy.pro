@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$default: #121413;
+$beige: #e9e9e5;
+$lightBeige: #fafbfa;
+$darkBeige: #d3d3cd;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+// @font-face {
+//   font-family: 'Product Sans';
+//   src: url('../fonts/Product-Sans-Bold-Italic.ttf') format('truetype');
+//   font-weight: bold;
+//   font-style: italic;
+// }
+
+// @font-face {
+//   font-family: 'Product Sans';
+//   src: url('../fonts/Product-Sans-Bold.ttf') format('truetype');
+//   font-weight: bold;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'Product Sans';
+//   src: url('../fonts/Product-Sans-Italic.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: italic;
+// }
+
+// @font-face {
+//   font-family: 'Product Sans';
+//   src: url('../fonts/Product-Sans-Regular.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: $default;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $default;
+}
+
+.default-html {
+  p {
+    margin-bottom: 1.2rem;
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 0.5rem;
+    }
+  }
+  a {
+    color: #857551;
+    text-decoration: underline;
+    transition: 0.1s all ease-in-out;
+    &:hover {
+      color: #f70d1a;
+    }
+  }
+  ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1.2rem;
+
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 0.5rem;
+    }
+
+    li {
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+  h1 {
+    font-size: 45px;
+    margin-bottom: 25px;
+    @media only screen and (max-width: 600px) {
+      margin-bottom: 10px;
+    }
+  }
+  h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+    @media only screen and (max-width: 600px) {
+      font-size: 25px;
+    }
+  }
+  h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+    @media only screen and (max-width: 600px) {
+      font-size: 20px;
+    }
+  }
+  h4 {
+    margin-bottom: 10px;
+  }
+}
+.filename-ellipsis {
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+/*Stripo styles*/
+.esdev-app .collapse {
+  visibility: visible;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fadeIn ease 0.5s;
+  -webkit-animation: fadeIn ease 0.5s;
+  -moz-animation: fadeIn ease 0.5s;
+  -o-animation: fadeIn ease 0.5s;
+  -ms-animation: fadeIn ease 0.5s;
+}
+//cropper tool overrides
+// #cropper-tool {
+//   .cropper-modal {
+//     background-color: rgba(0, 0, 0, 0);
+//   }
+// }
+.rsw-editor {
+  .rsw-ce {
+    ul,
+    ol,
+    li {
+      list-style: revert;
+      margin: revert;
+      padding: revert;
+    }
+  }
+}
+.default-html {
+  ul,
+  ol,
+  li {
+    list-style: revert;
+    margin: revert;
+    padding: revert;
+  }
+}
+#swiper-pagination {
+  width: 100%;
+  gap: 7px;
+  display: flex;
+  justify-content: center;
+  .bullet {
+    background: #fff;
+    height: 7px;
+    width: 7px;
+    cursor: pointer;
+    border-radius: 10px;
+    opacity: 0.5;
+  }
+  .bullet-active {
+    background: fff;
+    height: 7px;
+    width: 7px;
+    border-radius: 10px;
+    opacity: 1;
+  }
+}
+//stripo
+.esdev-app a.sripo-watermark.center-block {
+  display: none;
+}
