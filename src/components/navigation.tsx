@@ -68,7 +68,7 @@ const Navigation = () => {
                   onClick={() => navigate('/')}
                   className="text-2xl cursor-pointer"
                 >
-                  TheFakeBrand
+                    DonkeyComm
                 </h1>
               </div>
 

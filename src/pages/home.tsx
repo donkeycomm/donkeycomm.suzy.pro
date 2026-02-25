@@ -162,7 +162,7 @@ const Home: FC<filesProps> = ({}) => {
                 <h2 className="text-xl text-center text-white md:text-2xl lg:text-4xl">
                   Welcome{` ` + visitorName},
                   <br />
-                  to the FakeBrand library
+                  to the Donkeycomm library
                 </h2>
                 <div className="mt-5">
                   <SearchFilesHome

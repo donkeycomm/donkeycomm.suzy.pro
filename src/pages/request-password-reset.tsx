@@ -46,7 +46,7 @@ const RequestPasswordReset: React.FC = () => {
           className="text-2xl text-center cursor-pointer"
           onClick={() => navigate('/')}
         >
-          TheFakeBrand
+          Donkeycomm
         </h1>
         <h2 className="mt-5 text-base font-normal text-center text-gray-900">
           Request password reset

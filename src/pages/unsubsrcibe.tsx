@@ -61,7 +61,7 @@ const Unsubscribe: FC = () => {
   return (
     <div className="flex flex-col min-h-screen px-5 py-12 bg-shade fade-in lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h1 className="text-2xl text-center">TheFakeBrand</h1>
+        <h1 className="text-2xl text-center">DonkeyComm</h1>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">

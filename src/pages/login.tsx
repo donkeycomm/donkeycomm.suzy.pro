@@ -54,6 +54,15 @@ const Login: React.FC = () => {
         setLoading(false);
         // Handle network or server errors
         console.log(error);
+
+          if (error instanceof TypeError) {
+              setError(
+                  "Unable to connect to the server."
+              );
+          } else {
+              setError("Unexpected error occurred.");
+          }
+
       });
   };
 
@@ -64,7 +73,7 @@ const Login: React.FC = () => {
           className="text-2xl text-center cursor-pointer"
           onClick={() => navigate('/')}
         >
-          TheFakeBrand
+            DonkeyComm
         </h1>
         <h2 className="mt-5 text-base font-normal text-center text-gray-900">
           Sign in to your account
