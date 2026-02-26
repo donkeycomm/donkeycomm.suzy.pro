@@ -6,8 +6,6 @@ import { useState } from 'react';
 import FileUpload from '../components/fileupload';
 import CreateFolder from '../components/createfolder';
 import FileBrowser from '../components/filebrowser';
-import SearchFiles from '../components/searchfileshome';
-import Icon from '../components/icons';
 import Footer from '../components/footer';
 import { useLocation } from 'react-router-dom';
 
@@ -126,6 +124,13 @@ const Files: FC<filesProps> = ({}) => {
     setPageLoaded(true);
   }, []);
 
+  useEffect(() => {
+    const path = location.pathname
+        .replace("/files", "/")
+        .replace("//", "/")
+    updateFolderPath(path);
+  }, [location.pathname]);
+
   const roles = JSON.parse(user.groups || '[]');
 
   const logout = () => {
@@ -160,7 +165,6 @@ const Files: FC<filesProps> = ({}) => {
                 <FileBrowser
                   toggleActiveTab={toggleActiveTab}
                   folderPath={folderPath}
-                  changeFolderPath={updateFolderPath}
                   refreshCounter={counter}
                   groups={groups}
                 />
@@ -183,7 +187,6 @@ const Files: FC<filesProps> = ({}) => {
                     <div className="fixed top-0 left-0 z-30 grid content-center w-full h-full p-5 bg-opacity-50 md:p-7 bg-default">
                       <div className="w-full md:w-[600px] max-w-full mx-auto">
                         <CreateFolder
-                          updateFolderPath={updateFolderPath}
                           folderPath={folderPath}
                           groups={groups}
                           updateFolder={updateFolder}

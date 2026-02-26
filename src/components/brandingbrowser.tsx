@@ -5,7 +5,6 @@ import AppContext from '../utils/appContext';
 
 interface FileBrowserProps {
   folderPath: string;
-  changeFolderPath: (path: string) => void;
   refreshCounter: number;
   groups: Array<any>;
 }

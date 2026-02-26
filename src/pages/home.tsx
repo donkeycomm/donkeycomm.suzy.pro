@@ -65,9 +65,6 @@ const Home: FC<filesProps> = ({}) => {
     }
   };
 
-  const updateFolderPath = (path: string) => {
-    setFolderPath(path);
-  };
   const getgroups = async () => {
     const storedJWT = localStorage.getItem('jwt');
     await fetch(process.env.REACT_APP_API_URL + '/get-all-groups.php', {
@@ -165,10 +162,7 @@ const Home: FC<filesProps> = ({}) => {
                   to the Donkeycomm library
                 </h2>
                 <div className="mt-5">
-                  <SearchFilesHome
-                    path={folderPath}
-                    updateFolderPath={updateFolderPath}
-                  />
+                  <SearchFilesHome path={folderPath} />
                 </div>
               </div>
             </div>
@@ -179,7 +173,7 @@ const Home: FC<filesProps> = ({}) => {
               <div className="grid gap-5 lg:grid-cols-3 md:gap-7">
                 <div
                   onClick={() => {
-                    navigate('/files', { state: '/products/decoration' });
+                    navigate('/files/products/decoration' );
                   }}
                   className="px-8 py-8 rounded-md cursor-pointer bg-shade"
                 >
@@ -215,7 +209,7 @@ const Home: FC<filesProps> = ({}) => {
                 </div>
                 <div
                   onClick={() => {
-                    navigate('/files', { state: '/products/indoor' });
+                    navigate('/files/products/indoor' );
                   }}
                   className="p-8 cursor-pointer rounded-md bg-gradient-to-b from-[#3F7658] to-[#4B8968]/90"
                 >
@@ -249,7 +243,7 @@ const Home: FC<filesProps> = ({}) => {
                 </div>
                 <div
                   onClick={() => {
-                    navigate('/files', { state: '/products/outdoor' });
+                    navigate('/files/products/outdoor' );
                   }}
                   className="p-8 rounded-md cursor-pointer bg-shade"
                 >
@@ -292,7 +286,7 @@ const Home: FC<filesProps> = ({}) => {
                 </h2>
                 <button
                   onClick={() => {
-                    navigate('/files', { state: '/collections' });
+                    navigate('/files/collections' );
                   }}
                   className="flex items-center gap-2 text-sm transition cursor-pointer md:text-base hover:text-gray-500"
                 >
@@ -387,7 +381,7 @@ const Home: FC<filesProps> = ({}) => {
                 <div className="flex justify-end">
                   <button
                     onClick={() => {
-                      navigate('/files', { state: '/branding' });
+                      navigate('/files/branding' );
                     }}
                     className="flex items-center gap-2 text-sm transition cursor-pointer md:text-base hover:text-gray-500"
                   >
@@ -463,7 +457,6 @@ const Home: FC<filesProps> = ({}) => {
               </div>
               <BrandingBrowser
                 folderPath={brandingPath}
-                changeFolderPath={updateFolderPath}
                 refreshCounter={counter}
                 groups={groups}
               />

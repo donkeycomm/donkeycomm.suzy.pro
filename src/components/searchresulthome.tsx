@@ -3,18 +3,16 @@ import { useNavigate } from 'react-router-dom';
 
 interface searchresultProps {
   result: any;
-  updateFolderPath: (path: string) => void;
 }
 
-const SearchResultHome: FC<searchresultProps> = ({
-  result,
-  updateFolderPath,
-}) => {
-  const [loadingDownload, setLoadingDownload] = useState(false);
-  const goToFolder = (path: string) => {
-    updateFolderPath(path);
-  };
+const SearchResultHome: FC<searchresultProps> = ({ result }) => {
   const navigate = useNavigate();
+  const [loadingDownload, setLoadingDownload] = useState(false);
+
+  const goToFolder = (path: string) => {
+    navigate(`/files${path}`);
+  };
+
   const downloadFile = async (id: number, filename: string) => {
     setLoadingDownload(true);
     const user = JSON.parse(localStorage.getItem('user') || '{}');
@@ -91,14 +89,14 @@ const SearchResultHome: FC<searchresultProps> = ({
             src={`data:image/jpeg;base64,${result.base64}`}
             alt={result.file}
             className="w-12 h-12 rounded-sm cursor-pointer"
-            onClick={() => navigate('/files', { state: result.path })}
+            onClick={() => navigate(`/files${result.path}`)}
           />
         ) : (
           <img
             src={placeholder}
             alt={result.file}
             className="w-12 h-12 rounded-sm cursor-pointer"
-            onClick={() => navigate('/files', { state: result.path })}
+            onClick={() => navigate(`/files${result.path}`)}
           />
         )}
         <div className="max-w-[200px]">
@@ -108,7 +106,7 @@ const SearchResultHome: FC<searchresultProps> = ({
       <div className="flex items-center gap-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          onClick={() => navigate('/files', { state: result.path })}
+          onClick={() => navigate(`/files${result.path}`)}
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}

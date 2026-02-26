@@ -4,10 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import SearchResult from './searchresult';
 interface SearchfilesProps {
   path: string;
-  updateFolderPath: (path: string) => void;
 }
 
-const SearchFiles: FC<SearchfilesProps> = ({ path, updateFolderPath }) => {
+const SearchFiles: FC<SearchfilesProps> = ({ path }) => {
   const [searchText, setSearchText] = useState('');
   const [searching, setSearching] = useState(false);
 
@@ -184,7 +183,6 @@ const SearchFiles: FC<SearchfilesProps> = ({ path, updateFolderPath }) => {
           >
             {results.map((result: any, index: number) => (
               <SearchResult
-                updateFolderPath={updateFolderPath}
                 key={`result-${index}`}
                 result={result}
               />

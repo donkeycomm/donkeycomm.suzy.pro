@@ -107,6 +107,7 @@ function App() {
             </Layout>
           }
         ></Route>
+        <Route path="/files/*" element={<Layout><Files /></Layout>}/>
         <Route
           path="/users"
           element={

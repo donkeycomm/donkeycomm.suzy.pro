@@ -6,7 +6,6 @@ import axios from 'axios';
 
 interface createFolderProps {
   folderPath: string;
-  updateFolderPath: (path: string) => void;
   updateFolder: () => void;
   toggleCreateFolderModal: () => void;
   groups: Array<any>;
@@ -14,7 +13,6 @@ interface createFolderProps {
 
 const CreateFolder: FC<createFolderProps> = ({
   folderPath,
-  updateFolderPath,
   updateFolder,
   groups,
   toggleCreateFolderModal,
@@ -32,9 +30,6 @@ const CreateFolder: FC<createFolderProps> = ({
 
   const context = useContext(AppContext);
   const navigate = useNavigate();
-  const sendUpFolderPath = (path: string) => {
-    updateFolderPath(path);
-  };
 
   const createFolder = async () => {
     setLoading(true);

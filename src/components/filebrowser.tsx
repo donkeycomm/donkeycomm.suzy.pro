@@ -6,7 +6,6 @@ import AppContext from '../utils/appContext';
 import SearchFiles from './searchfiles';
 interface FileBrowserProps {
   folderPath: string;
-  changeFolderPath: (path: string) => void;
   refreshCounter: number;
   groups: Array<any>;
   toggleActiveTab: () => void;
@@ -14,7 +13,6 @@ interface FileBrowserProps {
 
 const FileBrowser: React.FC<FileBrowserProps> = ({
   folderPath,
-  changeFolderPath,
   refreshCounter,
   groups,
   toggleActiveTab,
@@ -80,7 +78,6 @@ const FileBrowser: React.FC<FileBrowserProps> = ({
         'Content-Type': 'application/json',
         ...(storedJWT && { Authorization: 'Bearer ' + storedJWT }),
       };
-      console.log('path', path);
       const response = await fetch(
         process.env.REACT_APP_API_URL + '/get-folder-by-path.php',
         {
@@ -296,7 +293,7 @@ const FileBrowser: React.FC<FileBrowserProps> = ({
   };
 
   const sendUpFolderPath = (path: string) => {
-    changeFolderPath(path);
+    navigate(`/files${path}`)
   };
 
   const goToFolder = (index: number) => {
@@ -564,15 +561,7 @@ const FileBrowser: React.FC<FileBrowserProps> = ({
   return (
     <div className={`min-h-[300px] lg:pb-20 fade-in`}>
       <div
-        className={`grid items-end relative  my-5 py-3 md:py-5 `}
-        // style={
-        //   folderImage
-        //     ? { backgroundImage: `url(data:image/jpeg;base64,${folderImage})` }
-        //     : { backgroundImage: `url('/folder-placeholder.jpg')` }
-        // }
-      >
-        {/* <div className={`absolute w-full h-full bg-default opacity-20`}></div> */}
-
+        className={`grid items-end relative  my-5 py-3 md:py-5 `}>
         <h1 className="flex relative flex-wrap md:min-h-[2rem]  gap-2 items-center text-xl md:text-2xl">
           {showContent && (
             <>
@@ -610,7 +599,7 @@ const FileBrowser: React.FC<FileBrowserProps> = ({
               </button>
             </div>
           )}
-          <SearchFiles path={folderPath} updateFolderPath={changeFolderPath} />
+          <SearchFiles path={folderPath} />
           <div className="flex justify-between h-[30px] overflow-hidden border rounded-full  border-suzy-gray">
             <button
               className={`${
@@ -725,10 +714,10 @@ const FileBrowser: React.FC<FileBrowserProps> = ({
               >
                 <span className="text-xs text-gray-400 transition-all md:text-sm group-hover:text-gray-300">{`>`}</span>
                 <span
-                  title={folderNames[index]?.folder_name}
+                  title={path}
                   className="text-xs transition-all text-gray-400 md:text-sm group-hover:text-gray-300 max-w-[120px] truncate"
                 >
-                  {folderNames[index]?.folder_name}
+                  {path}
                 </span>
               </button>
             ))}

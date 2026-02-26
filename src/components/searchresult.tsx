@@ -1,14 +1,16 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface searchresultProps {
   result: any;
-  updateFolderPath: (path: string) => void;
 }
 
-const SearchResult: FC<searchresultProps> = ({ result, updateFolderPath }) => {
+const SearchResult: FC<searchresultProps> = ({ result }) => {
+  const navigate = useNavigate();
   const [loadingDownload, setLoadingDownload] = useState(false);
+
   const goToFolder = (path: string) => {
-    updateFolderPath(path);
+    navigate(`/files${path}`);
   };
 
   const downloadFile = async (id: number, filename: string) => {
